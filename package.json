@@ -1,0 +1,18 @@
+{
+  "name": "codefresh-image-factory",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "olegz.codefresh <olegz@codefresh.io>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-jest": "^22.1.3",
+    "eslint-plugin-jsx-a11y": "^6.1.2"
+  }
+}
