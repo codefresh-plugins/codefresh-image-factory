@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 const chalk = require('chalk');
 const rp = require('request-promise');
-const { host, apiToken, image } = require('./config');
+const { host, apiToken, image, accountName } = require('./config');
 
 Promise.resolve()
     .then(() => rp({
@@ -9,8 +9,8 @@ Promise.resolve()
             uri: `${host}/api/images/external`,
             body: {
                 Image: image,
-                Digest: crypto.createHmac('sha256', image).update(`Digest-${image}`).digest('hex'),
-                Id: crypto.createHmac('sha256', image).update(`Id-${image}`).digest('hex'),
+                Digest: crypto.createHmac('sha256', image).update(`Digest-${accountName}-${image}`).digest('hex'),
+                Id: crypto.createHmac('sha256', image).update(`Id-${accountName}-${image}`).digest('hex'),
             },
             headers: {
                 'Authorization': `Bearer ${apiToken}`
