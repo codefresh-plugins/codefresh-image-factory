@@ -29,10 +29,10 @@ module.exports = {
 
     dockerFile: process.env.DOCKERFILE || undefined,
 
-    branch: process.env.BRANCH,
-    sha: process.env.SHA,
+    branch: process.env.BRANCH || undefined,
+    sha: process.env.SHA || undefined,
 
-    gitRepoOwner: process.env.GIT_REPO_OWNER,
-    gitRepoName: process.env.GIT_REPO_NAME,
+    gitRepoOwner: process.env.GIT_REPO_OWNER || undefined,
+    gitRepoName: process.env.GIT_REPO_NAME || undefined,
 };
 
