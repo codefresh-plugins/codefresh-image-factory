@@ -5,10 +5,10 @@
   "author": "olegz.codefresh <olegz@codefresh.io>",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^4.1.2",
+    "@codefresh-io/docker-reference": "^0.0.8",
+    "colors": "^1.4.0",
     "request": "^2.88.2",
-    "request-promise": "^4.2.6",
-    "@codefresh-io/docker-reference": "^0.0.8"
+    "request-promise": "^4.2.6"
   },
   "devDependencies": {
     "eslint": "^4.18.2",

@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+const colors = require('colors');
 const rp = require('request-promise');
 const config = require('./config');
 const {host, apiToken, image} = config;
@@ -9,10 +9,10 @@ Promise.resolve()
     .then(getPreRequires)
     .then(buildArgs)
     .then(createImage)
-    .then(() => console.log(chalk.green(`Image created successfully`)))
+    .then(() => console.log(colors.green(`Image created successfully`)))
     .then(() => process.exit(0))
     .catch(error => {
-        console.log(chalk.red(error.message));
+        console.log(colors.red(error.message));
         process.exit(1);
     });
 
@@ -121,7 +121,7 @@ async function createImage({imageInfo, registryInfo}) {
 
     return rp({
         method: 'POST',
-        uri: `${host}/api/images/factory`,
+        uri: `${host}/api/images`,
         body: {
             imageInfo,
             registryInfo
