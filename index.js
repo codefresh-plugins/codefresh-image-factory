@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const colors = require('colors');
 const rp = require('request-promise');
 const config = require('./config');
@@ -59,14 +60,14 @@ async function getPreRequires() {
 function buildArgs({pipeline, build, imageName, reference}) {
     const progressId = build ? build.progress_id : undefined;
     const internalImageId = config.inspectId.replace(DIGEST_PREFIX_REGEX, '');
-
+    const sha = config.commitUrl && _.last(config.commitUrl.replace(/\?.+$/,'').split('/'));
     const imageInfo = {
         pipeline: pipeline,
         buildDetails: {
             progressId,
             id: config.buildId,
             branch: config.branch,
-            sha: config.sha,
+            sha: config.sha || sha,
             commit: config.commitMsg,
             commitURL: config.commitUrl,
         },
@@ -83,7 +84,7 @@ function buildArgs({pipeline, build, imageName, reference}) {
                         'io.codefresh.repo.branch': config.branch,
                         'io.codefresh.repo.commit.message': config.commitMsg,
                         'io.codefresh.repo.commit.url': config.commitUrl,
-                        'io.codefresh.repo.sha': config.sha,
+                        'io.codefresh.repo.sha': config.sha || sha,
                     }
                 }
             },
