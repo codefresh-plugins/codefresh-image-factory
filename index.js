@@ -2,7 +2,7 @@ const crypto = require('crypto');
 const chalk = require('chalk');
 const rp = require('request-promise');
 const { host, apiToken, image, accountName } = require('./config');
-
+//
 Promise.resolve()
     .then(() => rp({
             method: 'POST',
